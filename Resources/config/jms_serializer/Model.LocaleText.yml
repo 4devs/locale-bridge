@@ -1,0 +1,12 @@
+FDevs\Locale\Model\LocaleText:
+    exclusion_policy: ALL
+    access_type: public_method
+    properties:
+        text:
+            expose: true
+            type: string
+            groups: [full, base]
+        locale:
+            expose: true
+            type: string
+            groups: [full, base]

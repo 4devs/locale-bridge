@@ -1,0 +1,38 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block trans_widget %}
+{% spaceless %}
+    {{ block(block_locale) }}
+{% endspaceless %}
+{% endblock %}
+
+{% block fdevs_locale_inline -%}
+{% spaceless %}
+    {{ form_widget(form) }}
+{% endspaceless %}
+{%- endblock fdevs_locale_inline %}
+
+{% block fdevs_locale_text_tabs %}
+{% spaceless %}
+    {% set active = 'active' %}
+    <div {{ block('widget_container_attributes') }} class="tabbable">
+        <ul class="nav nav-tabs">
+            {% for child in form %}
+                {{ form_widget(child.locale) }}
+                <li class="{{ loop.first?'active':'' }}">
+                    <a href="#{{ child.vars.id ~ '_tab' }}" data-toggle="tab">
+                        {{ child.vars.label|trans({}, translation_domain) }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="tab-content">
+            {% for child in form %}
+                <div class="tab-pane {{ loop.first?'active':'' }}" id="{{ child.vars.id ~ '_tab' }}">
+                    {{ form_widget(child.text) }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock fdevs_locale_text_tabs %}

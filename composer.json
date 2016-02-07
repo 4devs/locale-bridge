@@ -1,0 +1,48 @@
+{
+    "name": "fdevs/locale-bridge",
+    "license": "MIT",
+    "type": "library",
+    "description": "bridge for working with fedvs/locale library and other library",
+    "homepage": "https://github.com/4devs/locale-bridge",
+    "keywords": [
+        "languages",
+        "locale"
+    ],
+    "authors": [
+        {
+            "name": "Samusev Andrey",
+            "email": "andrey@4devs.pro",
+            "homepage": "http://andrey.4devs.io/"
+        },
+        {
+            "name": "4devs Community",
+            "homepage": "https://github.com/4devs/locale-bridge/contributors"
+        }
+    ],
+    "require-dev": {
+        "twig/twig": "~1.22",
+        "doctrine/common": "~2.6",
+        "symfony/form": "~2.8|~3.0",
+        "symfony/validator": "~2.8|~3.0",
+        "symfony/translation": "~2.8|~3.0",
+        "symfony/serializer": "^3.0"
+    },
+    "require": {
+        "php": "~5.5|~7.0",
+        "fdevs/locale": "~3.0"
+    },
+    "suggest": {
+        "doctrine/mongodb-odm": "to use with mongodb",
+        "jms/serializer": "to use with serializer",
+        "symfony/form": "to use with form",
+        "twig/twig": "use with twig"
+    },
+    "autoload": {
+        "psr-4": {
+            "FDevs\\Bridge\\Locale\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
+}
