@@ -19,6 +19,7 @@ Documentation
 
  - [Use with Symfony Translation](https://github.com/4devs/locale-bridge/blob/master/Resources/doc/translation.md)
  - [Use with Symfony Form](https://github.com/4devs/locale-bridge/blob/master/Resources/doc/form.md)
+ - [Use with Symfony Validator](https://github.com/4devs/locale-bridge/blob/master/Resources/doc/validator.md)
 
 License
 -------
