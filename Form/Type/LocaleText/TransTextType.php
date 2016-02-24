@@ -21,6 +21,8 @@ class TransTextType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(['locale_type' => HiddenLocaleType::class]);
+        $resolver->setDefaults([
+            'locale_type' => HiddenLocaleType::class,
+        ]);
     }
 }
