@@ -6,15 +6,21 @@
 
     <parameters>
         <parameter key="f_devs_locale.translator.class">FDevs\Locale\Translator</parameter>
+        <parameter key="f_devs_locale.translator_listener.class">FDevs\Bridge\Locale\EventListener\TranslatorListener</parameter>
         <parameter key="f_devs_locale.default_locale">en</parameter>
     </parameters>
 
     <services>
-
+        <service id="f_devs_locale.translator.default" alias="f_devs_locale.translator"/>
         <service id="f_devs_locale.translator" class="%f_devs_locale.translator.class%">
             <argument>%f_devs_locale.default_locale%</argument>
         </service>
 
+        <service id="f_devs_locale.translator_listener" class="%f_devs_locale.translator_listener.class%">
+            <argument type="service" id="f_devs_locale.translator.default" />
+            <argument type="service" id="request_stack" />
+            <tag name="kernel.event_subscriber" />
+        </service>
     </services>
 
 </container>

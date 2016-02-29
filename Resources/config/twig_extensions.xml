@@ -10,7 +10,7 @@
 
     <services>
         <service id="f_devs_locale.twig_extension" class="%f_devs_locale.twig_extension.class%" public="false">
-            <argument type="service" id="f_devs_locale.translator"/>
+            <argument type="service" id="f_devs_locale.translator.default"/>
             <argument type="collection"/>
             <tag name="twig.extension"/>
         </service>

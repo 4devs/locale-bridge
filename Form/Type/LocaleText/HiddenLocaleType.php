@@ -13,4 +13,12 @@ class HiddenLocaleType extends BaseType
     {
         return LocaleType::class;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'form';
+    }
 }

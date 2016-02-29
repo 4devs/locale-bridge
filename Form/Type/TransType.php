@@ -4,6 +4,7 @@ namespace FDevs\Bridge\Locale\Form\Type;
 
 use FDevs\Bridge\Locale\Form\EventListener\TranslatableFormSubscriber;
 use FDevs\Locale\LocaleInterface;
+use FDevs\Locale\Model\LocaleText;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -56,13 +57,14 @@ class TransType extends AbstractType
                 'options' => [],
                 'block_locale' => 'inline',
                 'locales' => $this->locales,
+                'data_class' => LocaleText::class,
             ])
             ->setDefined(['locales', 'options', 'block_locale'])
             ->addAllowedTypes('locales', 'array')
             ->addAllowedTypes('options', 'array')
             ->addAllowedTypes('locale_type', ['string', FormTypeInterface::class])
             ->addAllowedTypes('block_locale', ['string'])
-            ->addAllowedTypes('data_class', [LocaleInterface::class])
+            ->setAllowedValues('data', [LocaleInterface::class])
             ->setNormalizer('block_locale', function ($options, $value) {
                 return 'fdevs_locale_'.$value;
             })
